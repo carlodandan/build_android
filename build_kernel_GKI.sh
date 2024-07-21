@@ -19,6 +19,7 @@ export TARGET_PRODUCT=gki
 export TARGET_BOARD_PLATFORM=gki
 
 mkdir -p out/target/product/${MODEL}
+mkdir -p device/qcom/${TARGET_PRODUCT}-kernel
 
 export ANDROID_PRODUCT_OUT=${ANDROID_BUILD_TOP}/out/target/product/${MODEL}
 export OUT_DIR=${ANDROID_BUILD_TOP}/out/msm-kernel-${CHIPSET_NAME}-${TARGET_PRODUCT}
