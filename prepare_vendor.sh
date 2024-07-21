@@ -177,7 +177,7 @@ export TEMP_KP_OUT_DIR=$(mktemp -d ${ANDROID_PRODUCT_OUT:+-p ${ANDROID_PRODUCT_O
 trap "rm -rf ${TEMP_KP_OUT_DIR}" exit
 (
   cd ${ROOT_DIR}
-  OUT_DIR=${TEMP_KP_OUT_DIR} ./brunch ${KERNEL_TARGET} ${KERNEL_VARIANT}
+  OUT_DIR=${TEMP_KP_OUT_DIR} ./build/brunch ${KERNEL_TARGET} ${KERNEL_VARIANT}
 )
 
 ################################################################################
