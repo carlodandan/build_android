@@ -45,4 +45,4 @@ export KBUILD_EXT_MODULES="../vendor/qcom/opensource/mm-drivers/msm_ext_display 
   "
   
 #3. build kernel
-RECOMPILE_KERNEL=1 ./build/android/prepare_vendor.sh sec ${TARGET_PRODUCT}
+RECOMPILE_KERNEL=1 ./build/kernel/android/prepare_vendor.sh sec ${TARGET_PRODUCT}

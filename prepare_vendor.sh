@@ -116,7 +116,7 @@ if [ $1 == "dtb-only" ]; then
 
   cd ${ROOT_DIR}
   echo "  Merging vendor devicetree overlays"
-  ./build/android/merge_dtbs.sh \
+  ./build/kernel/android/merge_dtbs.sh \
       ${BASE_DT}/kp-dtbs \
       ${TECHPACK_DT} \
       ${BASE_DT}/dtbs
@@ -448,7 +448,7 @@ if [ -n "${ANDROID_PRODUCT_OUT}" ] && [ -n "${ANDROID_BUILD_TOP}" ]; then
       -C ${ANDROID_KERNEL_OUT}/kernel-uapi-headers
 
   set -x
-  ${ROOT_DIR}/build/android/export_headers.py \
+  ${ROOT_DIR}/build/kernel/android/export_headers.py \
     ${ANDROID_KERNEL_OUT}/kernel-uapi-headers/usr/include \
     ${ANDROID_BUILD_TOP}/bionic/libc/kernel/uapi \
     ${ANDROID_KERNEL_OUT}/kernel-headers \
@@ -506,7 +506,7 @@ if [ -n "${ANDROID_PRODUCT_OUT}" ] && [ -n "${ANDROID_BUILD_TOP}" ]; then
 
   (
     cd ${ROOT_DIR}
-    OUT_DIR=${ANDROID_EXT_MODULES_OUT} ./build/android/merge_dtbs.sh \
+    OUT_DIR=${ANDROID_EXT_MODULES_OUT} ./build/kernel/android/merge_dtbs.sh \
       ${ANDROID_KERNEL_OUT}/kp-dtbs \
       ${ANDROID_EXT_MODULES_COMMON_OUT} \
       ${ANDROID_KERNEL_OUT}/dtbs
