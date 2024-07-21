@@ -91,7 +91,7 @@ function rel_path() {
   python -c "import os.path; import sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$1" "$2"
 }
 
-ROOT_DIR=$(realpath $(dirname $(readlink -f $0))/../..) # build/kernel/android/prepare.sh -> .
+ROOT_DIR=$(realpath $(dirname $(readlink -f $0))/../../..) # build/kernel/android/prepare.sh -> .
 echo "  kernel platform root: $ROOT_DIR"
 
 DEVICE_NAME=${TARGET_PRODUCT}
@@ -177,7 +177,7 @@ export TEMP_KP_OUT_DIR=$(mktemp -d ${ANDROID_PRODUCT_OUT:+-p ${ANDROID_PRODUCT_O
 trap "rm -rf ${TEMP_KP_OUT_DIR}" exit
 (
   cd ${ROOT_DIR}
-  OUT_DIR=${TEMP_KP_OUT_DIR} ./brunch ${KERNEL_TARGET} ${KERNEL_VARIANT}
+  OUT_DIR=${TEMP_KP_OUT_DIR} ./build/brunch ${KERNEL_TARGET} ${KERNEL_VARIANT}
 )
 
 ################################################################################
@@ -236,7 +236,7 @@ if [ "${RECOMPILE_KERNEL}" == "1" ]; then
 
   (
     cd ${ROOT_DIR}
-    SKIP_MRPROPER=1 OUT_DIR=${ANDROID_KP_OUT_DIR} ./build.sh
+    SKIP_MRPROPER=1 OUT_DIR=${ANDROID_KP_OUT_DIR} ./build/build.sh
   )
 
   COPY_NEEDED=1
